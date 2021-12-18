@@ -1,0 +1,21 @@
+Score
+{
+    position: absolute;
+    left: 100px;
+	right: 100px;
+    bottom: 10px;
+    justify-content: center;
+	align-items: center;
+
+    .ScoreText
+    {
+        background-color: rgba( black, 0.8 );
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 50px;
+        font-weight: bold;
+        font-family: "Poppins";
+        text-shadow: 4px 4px 10px rgba( black, 0.5 );
+        color: white;
+    }
+}
