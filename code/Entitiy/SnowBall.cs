@@ -6,6 +6,8 @@ public class SnowBall : Prop
 	public bool IsDown { get; set; }
 	public MakeASnowmanPlayer Player { get; set; }
 
+	MakeASnowmanGame game = Game.Current as MakeASnowmanGame;
+
 	public override void Spawn()
 	{
 		base.Spawn();
@@ -57,15 +59,15 @@ public class SnowBall : Prop
 
 		if ( ( eventData.Entity is SnowBall ball && ball.IsDown ) || eventData.Entity is WorldEntity )
 		{
-			if ( MakeASnowmanGame.lastSnowBall.IsValid() && eventData.Entity is WorldEntity )
+			if ( game.LastSnowBall.IsValid() && eventData.Entity is WorldEntity )
 			{
-				(Game.Current as MakeASnowmanGame).GameOver();
+				game.GameOver();
 			}
 
-			if ( eventData.Entity == Player || ( MakeASnowmanGame.lastSnowBall.IsValid() && eventData.Entity != MakeASnowmanGame.lastSnowBall ) ) return;
+			if ( eventData.Entity == Player || (game.LastSnowBall.IsValid() && eventData.Entity != game.LastSnowBall) ) return;
 
 			PhysicsBody.BodyType = PhysicsBodyType.Static;
-			MakeASnowmanGame.lastSnowBall = this;
+			game.LastSnowBall = this;
 		}
 	}
 }

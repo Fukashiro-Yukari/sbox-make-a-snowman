@@ -9,8 +9,7 @@ public partial class MakeASnowmanGame : Game
 	public static readonly float OffsetDown = 250;
 	public static readonly float PlayerScale = 15;
 
-	public static SnowBall lastSnowBall { get; set; }
-
+	[Net] public SnowBall LastSnowBall { get; set; }
 	[Net] public List<SnowBall> SnowBalls { get; set; } = new();
 	[Net] public bool IsGameOver { get; set; }
 	[Net] public int GameOverScore { get; set; }
