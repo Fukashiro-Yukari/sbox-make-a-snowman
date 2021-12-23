@@ -66,7 +66,7 @@ public partial class MakeASnowmanPlayer : Prop
 			if ( SnowBallCount % 20 == 19 )
 			{
 				Rate += 0.5f;
-				timeSincePos = 27;
+				timeSincePos = 30;
 			}
 		}
 	}

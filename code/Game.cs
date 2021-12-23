@@ -67,4 +67,21 @@ public partial class MakeASnowmanGame : Game
 
 		IsGameOver = false;
 	}
+
+	bool isPlayingMusic;
+
+	public override void Simulate( Client cl )
+	{
+		base.Simulate( cl );
+
+		if ( IsClient )
+		{
+			if ( !isPlayingMusic )
+			{
+				isPlayingMusic = true;
+
+				Sound.FromScreen( "snowy" );
+			}
+		}
+	}
 }
