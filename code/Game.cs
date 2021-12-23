@@ -9,9 +9,9 @@ public partial class MakeASnowmanGame : Game
 	public static readonly float OffsetDown = 250;
 	public static readonly float PlayerScale = 15;
 
-	public static List<SnowBall> snowBalls = new();
 	public static SnowBall lastSnowBall { get; set; }
 
+	[Net] public List<SnowBall> SnowBalls { get; set; } = new();
 	[Net] public bool IsGameOver { get; set; }
 	[Net] public int GameOverScore { get; set; }
 
@@ -39,7 +39,7 @@ public partial class MakeASnowmanGame : Game
 
 		var score = 0;
 
-		foreach ( var ball in snowBalls )
+		foreach ( var ball in SnowBalls )
 		{
 			if ( ball.PhysicsBody.BodyType == PhysicsBodyType.Static )
 				score++;
@@ -54,13 +54,13 @@ public partial class MakeASnowmanGame : Game
 	{
 		await GameTask.DelaySeconds( 4 );
 
-		foreach ( var ball in snowBalls )
+		foreach ( var ball in SnowBalls )
 		{
 			if ( ball.IsValid() )
 				ball.Delete();
 		}
 
-		snowBalls.Clear();
+		SnowBalls.Clear();
 
 		foreach ( var ply in All.OfType<MakeASnowmanPlayer>() )
 			ply.ReSpawn();

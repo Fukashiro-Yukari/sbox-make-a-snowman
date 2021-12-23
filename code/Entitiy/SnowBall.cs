@@ -50,7 +50,7 @@ public class SnowBall : Prop
 		{
 			if ( eventData.Entity == Player || ( eventData.Entity is SnowBall sball && sball.PhysicsBody.BodyType != PhysicsBodyType.Static ) ) return;
 
-			Player.Position = Player.Position + Vector3.Up * 500;
+			Player.Position = Player.Position + Vector3.Up * 350;
 
 			return;
 		}

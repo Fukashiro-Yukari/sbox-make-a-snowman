@@ -1,5 +1,6 @@
 using Sandbox;
 using System;
+using System.Linq;
 
 public partial class MakeASnowmanPlayer : Prop
 {
@@ -9,10 +10,13 @@ public partial class MakeASnowmanPlayer : Prop
 
 	[Net] public int SnowBallCount { get; set; }
 
+	MakeASnowmanGame game;
+
 	public MakeASnowmanPlayer()
 	{
 		Transmit = TransmitType.Always;
 		Camera = new MakeASnowmanCamera();
+		game = Game.Current as MakeASnowmanGame;
 	}
 
 	public override void Spawn()
@@ -31,7 +35,6 @@ public partial class MakeASnowmanPlayer : Prop
 		Scale = MakeASnowmanGame.PlayerScale;
 		timeSincePos = 30;
 		Rate = 1f;
-		SnowBallCount = 0;
 	}
 
 	public override void Simulate( Client cl )
@@ -55,13 +58,14 @@ public partial class MakeASnowmanPlayer : Prop
 			};
         }
 
+		SnowBallCount = game.SnowBalls.Where( x => x.PhysicsBody.BodyType == PhysicsBodyType.Static ).Count();
+
 		if ( Input.Pressed( InputButton.Attack1 ) && !(Game.Current as MakeASnowmanGame).IsGameOver )
 		{
-			MakeASnowmanGame.snowBalls.Add( snowBall );
+			game.SnowBalls.Add( snowBall );
 
 			snowBall.IsDown = true;
 			snowBall = null;
-			SnowBallCount++;
 
 			if ( SnowBallCount % 20 == 19 )
 			{
