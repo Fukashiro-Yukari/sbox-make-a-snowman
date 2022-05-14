@@ -15,7 +15,7 @@ public partial class MakeASnowmanPlayer : Prop
 	public MakeASnowmanPlayer()
 	{
 		Transmit = TransmitType.Always;
-		Camera = new MakeASnowmanCamera();
+		Components.Add( new MakeASnowmanCamera() );
 		game = Game.Current as MakeASnowmanGame;
 	}
 

@@ -1,5 +1,25 @@
 {
-    "sharedassets": "*.*",
-    "type": "game",
-    "ident": "nepqneko.makeasnowman"
+  "Title": "Make A Snowman",
+  "Type": "game",
+  "Org": "nepqneko",
+  "Ident": "makeasnowman",
+  "Schema": 1,
+  "HasAssets": true,
+  "AssetsPath": "",
+  "ResourcePaths": null,
+  "HasCode": true,
+  "CodePath": "code",
+  "RootNamespace": "Sandbox",
+  "Metadata": {
+    "MapList": [
+      "nepqneko.mas_simplemap"
+    ],
+    "PerMapRanking": false,
+    "LeaderboardType": 0,
+    "RankType": 0,
+    "MapSelect": 2,
+    "GameNetworkType": 1,
+    "MaxPlayers": 1,
+    "MinPlayers": 1
+  }
 }

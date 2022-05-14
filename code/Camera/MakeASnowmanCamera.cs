@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Sandbox
 {
-	public partial class MakeASnowmanCamera : Camera
+	public partial class MakeASnowmanCamera : CameraMode
 	{
 		public override void Activated()
 		{
