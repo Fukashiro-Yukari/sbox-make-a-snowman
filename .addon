@@ -15,8 +15,8 @@
       "nepqneko.mas_simplemap"
     ],
     "PerMapRanking": false,
-    "LeaderboardType": 0,
-    "RankType": 0,
+    "LeaderboardType": 2,
+    "RankType": 2,
     "MapSelect": 2,
     "GameNetworkType": 1,
     "MaxPlayers": 1,
