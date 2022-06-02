@@ -60,7 +60,7 @@ public partial class MakeASnowmanPlayer : Prop
 
 		SnowBallCount = game.SnowBalls.Where( x => x.PhysicsBody.BodyType == PhysicsBodyType.Static ).Count();
 
-		if ( Input.Pressed( InputButton.Attack1 ) && !(Game.Current as MakeASnowmanGame).IsGameOver )
+		if ( Input.Pressed( InputButton.PrimaryAttack ) && !(Game.Current as MakeASnowmanGame).IsGameOver )
 		{
 			game.SnowBalls.Add( snowBall );
 
